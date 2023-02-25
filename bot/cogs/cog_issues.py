@@ -1,4 +1,4 @@
-from discord.ext.commands import Bot, Cog
+from discord.ext.commands import Bot, Cog, Context
 
 
 class CogIssues(Cog):
@@ -10,8 +10,8 @@ class CogIssues(Cog):
         print("okay")
 
     async def gitlab_trigger(self):
-        print("gitlab")
-
+        pass
+        #await self.bot.get_channel(id)
 
 async def setup(bot: Bot) -> None:
     await bot.add_cog(CogIssues(bot))
