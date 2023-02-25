@@ -1,0 +1,151 @@
+'{
+    "object_kind": "issue",
+    "event_type": "issue",
+    "user": {
+        "id": 3,
+        "name": "Romain Mularczyk",
+        "username": "RMularczyk",
+        "avatar_url": "https://secure.gravatar.com/avatar/696f095f0b659aea086fdde68f088f1c?s=80&d=identicon",
+        "email": "[REDACTED]"
+    },
+    "project": {
+        "id": 10,
+        "name": "backend",
+        "description": null,
+        "web_url": "https://gitlab.aclain.info/parl-ia-ment/backend",
+        "avatar_url": null,
+        "git_ssh_url": "git@gitlab.aclain.info:parl-ia-ment/backend.git",
+        "git_http_url": "https://gitlab.aclain.info/parl-ia-ment/backend.git",
+        "namespace": "Parl-IA-ment",
+        "visibility_level": 0,
+        "path_with_namespace": "parl-ia-ment/backend",
+        "default_branch": null,
+        "ci_config_path": null,
+        "homepage": "https://gitlab.aclain.info/parl-ia-ment/backend",
+        "url": "git@gitlab.aclain.info:parl-ia-ment/backend.git",
+        "ssh_url": "git@gitlab.aclain.info:parl-ia-ment/backend.git",
+        "http_url": "https://gitlab.aclain.info/parl-ia-ment/backend.git"
+    },
+    "object_attributes": {
+        "author_id": 3,
+        "closed_at": null,
+        "confidential": false,
+        "created_at": "2023-02-25 01:35:31 UTC",
+        "description": "This is the fulltext",
+        "discussion_locked": null,
+        "due_date": "2023-03-22",
+        "id": 6,
+        "iid": 3,
+        "last_edited_at": null,
+        "last_edited_by_id": null,
+        "milestone_id": null,
+        "moved_to_id": null,
+        "duplicated_to_id": null,
+        "project_id": 10,
+        "relative_position": null,
+        "state_id": 1,
+        "time_estimate": 0,
+        "title": "A new issue",
+        "updated_at": "2023-02-25 01:35:31 UTC",
+        "updated_by_id": null,
+        "weight": null,
+        "url": "https://gitlab.aclain.info/parl-ia-ment/backend/-/issues/3",
+        "total_time_spent": 0,
+        "time_change": 0,
+        "human_total_time_spent": null,
+        "human_time_change": null,
+        "human_time_estimate": null,
+        "assignee_ids": [
+            3
+        ],
+        "assignee_id": 3,
+        "labels": [
+            {
+                "id": 13,
+                "title": "todo",
+                "color": "#00b140",
+                "project_id": 10,
+                "created_at": "2023-02-25 01:34:22 UTC",
+                "updated_at": "2023-02-25 01:34:22 UTC",
+                "template": false,
+                "description": null,
+                "type": "ProjectLabel",
+                "group_id": null
+            }
+        ],
+        "state": "opened",
+        "severity": "unknown",
+        "action": "open"
+    },
+    "labels": [
+        {
+            "id": 13,
+            "title": "todo",
+            "color": "#00b140",
+            "project_id": 10,
+            "created_at": "2023-02-25 01:34:22 UTC",
+            "updated_at": "2023-02-25 01:34:22 UTC",
+            "template": false,
+            "description": null,
+            "type": "ProjectLabel",
+            "group_id": null
+        }
+    ],
+    "changes": {
+        "author_id": {
+            "previous": null,
+            "current": 3
+        },
+        "created_at": {
+            "previous": null,
+            "current": "2023-02-25 01:35:31 UTC"
+        },
+        "description": {
+            "previous": null,
+            "current": "This is the fulltext"
+        },
+        "due_date": {
+            "previous": null,
+            "current": "2023-03-22"
+        },
+        "id": {
+            "previous": null,
+            "current": 6
+        },
+        "iid": {
+            "previous": null,
+            "current": 3
+        },
+        "project_id": {
+            "previous": null,
+            "current": 10
+        },
+        "time_estimate": {
+            "previous": null,
+            "current": 0
+        },
+        "title": {
+            "previous": null,
+            "current": "A new issue"
+        },
+        "updated_at": {
+            "previous": null,
+            "current": "2023-02-25 01:35:31 UTC"
+        }
+    },
+    "repository": {
+        "name": "backend",
+        "url": "git@gitlab.aclain.info:parl-ia-ment/backend.git",
+        "description": null,
+        "homepage": "https://gitlab.aclain.info/parl-ia-ment/backend"
+    },
+    "assignees": [
+        {
+            "id": 3,
+            "name": "Romain Mularczyk",
+            "username": "RMularczyk",
+            "avatar_url": "https://secure.gravatar.com/avatar/696f095f0b659aea086fdde68f088f1c?s=80&d=identicon",
+            "email": "[REDACTED]"
+        }
+    ]
+}'
