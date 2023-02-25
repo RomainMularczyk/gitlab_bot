@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "gitlab-bot"
+version = "0.1.0"
+description = ""
+authors = ["Romain Mularczyk"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "gitlab_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.11"
+discord-py = "^2.1.1"
+fastapi = "^0.92.0"
+uvicorn = "^0.20.0"
+python-dotenv = "^1.0.0"
+
+
+[tool.poetry.group.dev.dependencies]
+black = "^23.1.0"
+pylint = "^2.16.2"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.black]
+line-length = 80
+preview = true
+
+[format]
+max-line-length = 80
