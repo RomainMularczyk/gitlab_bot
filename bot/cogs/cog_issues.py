@@ -7,11 +7,15 @@ class CogIssues(Cog):
 
     @Cog.listener()
     async def on_ready(self):
-        print("okay")
+        print("CogsIssues ready.")
 
     async def gitlab_trigger(self):
+        """
+        Listen to GitLab webhook trigger to send tasks to a user.
+        """
         pass
-        #await self.bot.get_channel(id)
+        # await self.bot.get_channel(id)
+
 
 async def setup(bot: Bot) -> None:
     await bot.add_cog(CogIssues(bot))
