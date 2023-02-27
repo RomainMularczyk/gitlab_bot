@@ -2,6 +2,7 @@ import asyncio
 import os
 from dotenv import load_dotenv
 from fastapi import FastAPI
+from routes.merge_requests import router as merge_requests_router
 from routes.issues import router as issues_router
 from bot.main import client, main
 
@@ -13,6 +14,7 @@ token: str = os.environ.get("DISCORD_BOT_TOKEN")
 # ---- API ----
 app = FastAPI()
 app.include_router(issues_router)
+app.include_router(merge_requests_router)
 
 
 # ---- Launch Discord bot ----
