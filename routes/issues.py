@@ -1,33 +1,27 @@
-from typing import List
-from fastapi import APIRouter, Request
+from fastapi import APIRouter, HTTPException
 from bot.main import client
+from models.Issue import Issue
+from services.Issues import Issues
+from errors.Discord import NoSuchDiscordUser
 
 router = APIRouter()
 
 
-@router.post("/new_issue")
-async def new_issue(request: Request):
+@router.post("/new_issue", status_code=200)
+async def new_issue(issue: Issue):
     """
     Route hit by the GitLab issues webhook.
     """
-    body = await request.body()
-    assignees: List = await body["assignees"]
-    currated_issues = []
 
-    for assignee in assignees:
-        currated_issue = {
-            "label": body["labels"]["title"],
-            "assignee": assignee["name"],
-            "group": body["project"]["namespace"],
-            "repository": body["repository"]["name"],
-            "path_with_namespace": body["project"]["path_with_namespace"],
-            "repository_url": body["repository"]["url"],
-            "title": body["changes"]["title"]["current"],
-            "link": body["object_attributes"]["url"],
-            "state": body["object_attributes"]["state_id"],
-            "description": body["changes"]["description"]["current"],
-            "due_date": body["changes"]["due_date"]["current"],
-        }
-        currated_issues.append(currated_issue)
+    currated_issue = Issues.currate_issue(issue)
 
-    await client.get_cog("CogIssues").gitlab_trigger(currated_issues)
+    for assignee in issue.assignees:
+        try:
+            await client.get_cog("CogIssues").gitlab_trigger(
+                assignee, currated_issue
+            )
+        except NoSuchDiscordUser as e:
+            raise HTTPException(
+                status_code=404,
+                detail=f"Discord user not found. Username : {e.username}",
+            )
