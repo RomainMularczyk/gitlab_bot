@@ -3,6 +3,8 @@ from bot.main import client
 from models.Issue import Issue
 from services.Issues import Issues
 from errors.Discord import NoSuchDiscordUser
+from errors.GitLab import GitLabAttributeNotFound
+from fastapi import Request
 
 router = APIRouter()
 
@@ -13,7 +15,12 @@ async def new_issue(issue: Issue):
     Route hit by the GitLab issues webhook.
     """
 
-    currated_issue = Issues.currate_issue(issue)
+    try:
+        currated_issue = Issues.currate_issue(issue)
+    except GitLabAttributeNotFound as e:
+        raise HTTPException(
+            status_code=422, detail="GitLab attribute not provided."
+        )
 
     for assignee in issue.assignees:
         try:
