@@ -15,6 +15,8 @@ class ObjectAttribute(BaseModel):
     state_id: int
     url: str
     labels: List[Label]
+    target_branch: Union[str, None]
+    source_branch: Union[str, None]
     assignee_id: Union[int, None]
     assignee_ids: List[int]
     state: str
