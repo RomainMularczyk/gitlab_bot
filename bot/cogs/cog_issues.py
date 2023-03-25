@@ -12,6 +12,11 @@ load_dotenv(".env.discord")
 
 
 class CogIssues(Cog, name="CogIssues"):
+    """
+    Define Discord bot commands and triggers to display GitLab metadata when
+    issues are created.
+    """
+
     def __init__(self, bot: Bot):
         self.bot = bot
         self.channel_id = int(os.environ.get("DISCORD_MISSIONS_CHANNEL_ID"))
@@ -21,7 +26,7 @@ class CogIssues(Cog, name="CogIssues"):
         """
         Log 'ready' when loaded.
         """
-        print("CogsIssues ready.")
+        print("CogIssues ready.")
 
     async def gitlab_trigger(self, assignee: Assignee, issue: Dict) -> None:
         """
@@ -29,6 +34,8 @@ class CogIssues(Cog, name="CogIssues"):
 
         Parameters
         ----------
+        assignee : Assignee
+            A user that got assigned a GitLab issue.
         issue : Dict
             A currated GitLab issue.
         """
@@ -44,5 +51,10 @@ class CogIssues(Cog, name="CogIssues"):
 async def setup(bot: Bot) -> None:
     """
     Setup function for automated cogs discovery.
+
+    Parameters
+    ----------
+    bot : Bot
+        The Discord bot instance.
     """
     await bot.add_cog(CogIssues(bot))
