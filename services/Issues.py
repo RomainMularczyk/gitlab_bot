@@ -18,6 +18,11 @@ class Issues:
         -------
         Dict
             A currated GitLab issue.
+
+        Raises
+        ------
+        GitLabAttributeNotFound
+            When a required GitLab attribute was not assigned.
         """
         try:
             currated_issue: Dict = {
@@ -33,7 +38,6 @@ class Issues:
                 "state": issue.object_attributes.state_id,
                 "due_date": issue.changes.due_date.current,
             }
+            return currated_issue
         except AttributeError:
             raise GitLabAttributeNotFound
-
-        return currated_issue
