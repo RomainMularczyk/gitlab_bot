@@ -4,7 +4,7 @@ from models.Issue import Issue
 from services.Issues import Issues
 from errors.Discord import NoSuchDiscordUser
 from errors.GitLab import GitLabAttributeNotFound
-from fastapi import Request
+
 
 router = APIRouter()
 
@@ -30,5 +30,5 @@ async def new_issue(issue: Issue):
         except NoSuchDiscordUser as e:
             raise HTTPException(
                 status_code=404,
-                detail=f"Discord user not found. Username : {e.username}",
+                detail=f"Discord user not found. Username : {e.username}.",
             )
