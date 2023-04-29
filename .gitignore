@@ -1,9 +1,16 @@
 # Secrets 
-*.env
-.env*
+*.env*
 
 # Caches
 *__pycache__/
 
 # Misc
 *.DS_Store
+
+# Webserver
+nginx.conf
+
+# Docker
+docker-compose.yml
+Dockerfile
+init.sh

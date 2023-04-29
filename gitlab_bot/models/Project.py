@@ -1,6 +1,7 @@
 from typing import Union
 from pydantic import BaseModel
 
+
 class Project(BaseModel):
     id: int
     name: str
@@ -18,3 +19,7 @@ class Project(BaseModel):
     url: str
     ssh_url: str
     http_url: str
+
+    class Config:
+        extra = "allow"
+        

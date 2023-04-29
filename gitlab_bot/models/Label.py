@@ -26,3 +26,7 @@ class Label(BaseModel):
     _validate_inserted_at = validator("updated_at", allow_reuse=True)(
         datetime_validator
     )
+
+    class Config:
+        extra = "allow"
+        

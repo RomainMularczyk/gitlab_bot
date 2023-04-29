@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Optional, Union
 from pydantic import BaseModel, validator
 from .Label import Label
 from models.validators.datetime import date_validator, datetime_validator
@@ -11,11 +11,14 @@ class ObjectAttribute(BaseModel):
     created_at: str
     title: str
     description: str
-    due_date: str
+    due_date: Union[str, None]
     state_id: int
     url: str
     labels: List[Label]
-    assignee_id: int
+    target_branch: Union[str, None]
+    source_branch: Union[str, None]
+    state: Optional[Union[str, None]]
+    assignee_id: Union[int, None]
     assignee_ids: List[int]
     state: str
 
@@ -28,3 +31,6 @@ class ObjectAttribute(BaseModel):
     )
 
     _validate_due_date = validator("due_date", allow_reuse=True)(date_validator)
+
+    class Config:
+        extra = "allow"
