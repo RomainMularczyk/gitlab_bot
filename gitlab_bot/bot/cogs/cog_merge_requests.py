@@ -1,11 +1,10 @@
 import os
 from typing import Dict, List
-from models.Assignee import Assignee
 from discord.ext.commands import Bot, Cog
 from dotenv import load_dotenv
-
-# from bot.formaters.merge_request_formater import merge_request_formater
+from bot.formaters.merge_request_formater import format_merge_request
 from bot.members.manage_members import retrieve_members
+from models.Assignee import Assignee
 from errors.Discord import NoSuchDiscordUser
 
 # ---- Load dotenv ----
@@ -21,6 +20,9 @@ class CogMergeRequests(Cog, name="CogMergeRequests"):
     def __init__(self, bot: Bot):
         self.bot = bot
         self.channel_id = int(os.environ.get("DISCORD_PROJECT_MGMT_CHANNEL_ID"))
+        self.project_manager_id = int(
+            os.environ.get("DISCORD_PROJECT_MANAGER_ID")
+        )
 
     @Cog.listener()
     async def on_ready(self) -> None:
@@ -50,7 +52,10 @@ class CogMergeRequests(Cog, name="CogMergeRequests"):
         except NoSuchDiscordUser:
             raise NoSuchDiscordUser(assignees.username)
 
-        formated_merge_request = format_merge_request(member_id, merge_request)
+        formated_merge_request = format_merge_request(
+            self.project_manager_id, members_id, merge_request
+        )
+        await self.bot.get_channel(self.channel_id).send(formated_merge_request)
 
 
 async def setup(bot: Bot) -> None:

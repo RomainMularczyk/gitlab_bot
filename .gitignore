@@ -13,3 +13,4 @@ nginx.conf
 # Docker
 docker-compose.yml
 Dockerfile
+init.sh

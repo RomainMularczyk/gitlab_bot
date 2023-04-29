@@ -3,7 +3,7 @@ from models.Issue import Issue
 from errors.GitLab import GitLabAttributeNotFound
 
 
-class Issues:
+class IssuesService:
     @staticmethod
     def currate_issue(issue: Issue):
         """
@@ -24,6 +24,7 @@ class Issues:
         GitLabAttributeNotFound
             When a required GitLab attribute was not assigned.
         """
+
         try:
             currated_issue: Dict = {
                 "labels": issue.labels,
@@ -32,11 +33,11 @@ class Issues:
                 "repository": issue.repository.name,
                 "path_with_namespace": issue.project.path_with_namespace,
                 "repository_url": issue.repository.url,
-                "title": issue.changes.title.current,
-                "description": issue.changes.description.current,
+                "title": issue.object_attributes.title,
+                "description": issue.object_attributes.description,
                 "link": issue.object_attributes.url,
                 "state": issue.object_attributes.state_id,
-                "due_date": issue.changes.due_date.current,
+                "due_date": issue.object_attributes.due_date,
             }
             return currated_issue
         except AttributeError:

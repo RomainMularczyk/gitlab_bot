@@ -3,8 +3,8 @@ from typing import Dict
 from discord.ext.commands import Bot, Cog
 from dotenv import load_dotenv
 from bot.formaters.issue_formater import format_issue
+from bot.members.manage_members import retrieve_member
 from models.Assignee import Assignee
-from bot.members.retrieve_member import retrieve_member
 from errors.Discord import NoSuchDiscordUser
 
 # ---- Load dotenv ----

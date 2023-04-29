@@ -1,7 +1,7 @@
 from typing import Dict
 
 
-def format_issue(assignee_id: int, issue: Dict):
+def format_issue(assignee_id: int, issue: Dict) -> str:
     """
     Format an incoming GitLab issue.
 

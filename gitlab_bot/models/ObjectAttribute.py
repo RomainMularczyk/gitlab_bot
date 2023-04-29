@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import List, Optional, Union
 from pydantic import BaseModel, validator
 from .Label import Label
 from models.validators.datetime import date_validator, datetime_validator
@@ -17,6 +17,7 @@ class ObjectAttribute(BaseModel):
     labels: List[Label]
     target_branch: Union[str, None]
     source_branch: Union[str, None]
+    state: Optional[Union[str, None]]
     assignee_id: Union[int, None]
     assignee_ids: List[int]
     state: str

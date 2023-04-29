@@ -14,6 +14,7 @@ class MergeRequest(BaseModel):
     """
 
     assignees: Optional[List[Assignee]]
+    reviewers: Optional[List[Assignee]]
     labels: Optional[List[Label]]
     changes: Union[Changes, None]
     object_attributes: ObjectAttribute
