@@ -6,3 +6,10 @@
 
 # Misc
 *.DS_Store
+
+# Webserver
+nginx.conf
+
+# Docker
+docker-compose.yml
+Dockerfile
